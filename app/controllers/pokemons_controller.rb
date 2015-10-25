@@ -10,9 +10,23 @@ Redirect to the home page
 	def capture
 		@pokemon = Pokemon.find(params[:id])
 		@pokemon.trainer_id = current_trainer.id
-		Pokemon.save
+		@pokemon.save
 		redirect_to root_path
 
+	end
+
+	def damage
+		@pokemon = Pokemon.find(params[:id])
+		@pokemon.health -= 10
+		if @pokemon.health <= 0
+			PokemonsController.destory
+		end
+		@pokemon.save
+
+	end
+
+	def destory(pokemon)
+		Pokemon.delete(pokemon)
 	end
 
 end
