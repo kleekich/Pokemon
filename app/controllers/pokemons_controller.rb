@@ -20,18 +20,16 @@ Redirect to the home page
 
 		@pokemon.health -= 10
 		if @pokemon.health <=0
-			PokemonsController.destory(@pokemon)
+			Pokemon.delete(@pokemon)
 		end
 		@pokemon.save
-		redirect_to root_path
+		redirect_to trainer_path(id: current_trainer.id)
 		
 
    end
 
 
-	def destory(pokemon)
-		Pokemon.delete(pokemon)
-	end
+
 	
 
 end
