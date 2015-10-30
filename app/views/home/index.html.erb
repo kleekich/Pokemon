@@ -5,6 +5,7 @@
   <p> A wild <%= @pokemon.name %> has appeared!</p>
   <!-- REPLACE THIS LINE BELOW -->
  <%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :capture %>
- <%= button_to "Damage!", damage_path(id: @pokemon), :class => "button medium", :method => :damage %>
+ 
+ 
 
 <% end %>

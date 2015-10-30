@@ -16,17 +16,22 @@ Redirect to the home page
 	end
 
 	def damage
-		@pokemon = Pokemon.find(params[:id])
+		@pokemon = Pokemon.where(id: param[:name])
+
 		@pokemon.health -= 10
-		if @pokemon.health <= 0
-			PokemonsController.destory
+		if @pokemon.health <=0
+			PokemonsController.destory(@pokemon)
 		end
 		@pokemon.save
+		redirect_to trainer_path
+		
 
-	end
+   end
+
 
 	def destory(pokemon)
 		Pokemon.delete(pokemon)
 	end
+	
 
 end

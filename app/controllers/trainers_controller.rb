@@ -11,4 +11,9 @@ class TrainersController < ApplicationController
 
   end
 
+  
+
+
+  
+
 end

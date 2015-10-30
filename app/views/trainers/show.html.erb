@@ -5,7 +5,8 @@
 <p>---------</p>
 <% @pokemons.each do |pokemon| %>
 	
-	<p>Pokemon Name: <%= pokemon.name %> </p>
+	<p>Pokemon Name: <%= pokemon.name %> </p> 
+	<%= button_to "Damage!", damage_path(name: pokemon.name), :class => "button medium", :method => :put %>
 	<p>Pokemon Level: <%= pokemon.level %> </p>
 	<p>Pokemon Level: <%= pokemon.health %> </p>
 	<p>---------</p>
