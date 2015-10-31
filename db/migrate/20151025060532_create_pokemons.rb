@@ -11,8 +11,6 @@ class CreatePokemons < ActiveRecord::Migration
       
     end
   end
-  def up
-  	change_column :pokemons, :level, :integer, :default =>1
-  end
+
 
 end

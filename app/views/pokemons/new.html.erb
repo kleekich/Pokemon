@@ -1,5 +1,5 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @pokemon, :url => create_path(), :method => :post do |f|%>
   <%= f.input :name, label: "Pokemon name:" %>
-  
-  <%= f.button :submit %>
+  <%= f.button :submit%>
 <% end %>
+

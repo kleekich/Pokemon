@@ -28,8 +28,19 @@ Redirect to the home page
 
    end
 
+   def new
+		@pokemon = Pokemon.new
+   	    render "new"
+   		
+   end
+
+   def create
+   	@pokemon = Pokemon.new(name: params[:name], trainer_id: 1)
+   	@pokemon.save
+   	redirect_to trainer_path(id: current_trainer.id)
 
 
+   	end
 	
 
 end
