@@ -17,6 +17,7 @@ Yppi: My girlfirend's puppy
 I put redirect_to trainer_path(id: current_trainer.id). The path needs id of the trainer we are currently viewing. 
 
 # Question 5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
+	Check whether there is no name or dupilicate name exists, if is one of those cases, we set flash[:error] with "no name or dupilicate name"
 
 # Give us feedback on the project and decal below!
 
