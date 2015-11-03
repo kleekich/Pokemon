@@ -1,15 +1,15 @@
 <h3>Trainer</h3>
 <p>Name: <%= @trainer.name if @trainer.name %></p>
 <p>Email: <%= @trainer.email if @trainer.email %></p>
-<p>Pokemon Captured</p>
-<p>---------</p>
+<p><%= @trainer.name %>'s Pokemon List</p>
+<p>------------------</p>
 <% @pokemons.each do |pokemon| %>
 	
 	<p>Pokemon Name: <%= pokemon.name %> </p> 
-	<%= button_to "Damage!", damage_path(id: pokemon.id), :class => "button medium", :method => :put %>
 	<p>Pokemon Level: <%= pokemon.level %> </p>
 	<p>Pokemon Health: <%= pokemon.health %> </p>
-	<p>---------</p>
+	<%= button_to "Damage!", damage_path(id: pokemon.id), :class => "button medium", :method => :put %>
+	<p>------------------</p>
 <% end %>
 <% if current_trainer.id == @trainer.id %>
 	<%= button_to "Create a Pokemon!", new_path(), :class => "button medium", :method => :get %>
