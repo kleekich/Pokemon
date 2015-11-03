@@ -30,14 +30,24 @@ Redirect to the home page
 
    def new
 		@pokemon = Pokemon.new
+
    	    render "new"
    		
    end
 
    def create
-   	pokemon = Pokemon.new(name: params[:pokemon][:name], trainer_id: current_trainer.id)
-   	pokemon.save
-   	redirect_to trainer_path(id: current_trainer.id)
+   	if Pokemon.new(name: params[:pokemon][:name], trainer_id: current_trainer.id).valid?
+   		pokemon = Pokemon.new(name: params[:pokemon][:name], trainer_id: current_trainer.id)
+   		pokemon.save
+   		redirect_to trainer_path(id: current_trainer.id)
+   	else
+   		@pokemon = Pokemon.new(name: params[:pokemon][:name], trainer_id: current_trainer.id)
+   		flash[:error] = @pokemon.errors.full_messages.to_sentence << "Error: Duplicate Name or No Name"
+   		redirect_to new_path
+
+   	end
+
+   	
 
 
    end
