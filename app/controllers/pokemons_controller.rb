@@ -35,15 +35,15 @@ Redirect to the home page
    end
 
    def create
-   	@pokemon = Pokemon.new(name: params[:name], trainer_id: 1)
-   	@pokemon.save
+   	pokemon = Pokemon.new(name: params[:pokemon][:name], trainer_id: current_trainer.id)
+   	pokemon.save
    	redirect_to trainer_path(id: current_trainer.id)
 
 
    end
 
    def user_params
-  	params.require(:pokemon).permit(:name, :trainer_id)
+  	params.require(:pokemon).permit(:name)
    end
 	
 
