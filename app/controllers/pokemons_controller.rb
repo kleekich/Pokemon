@@ -40,7 +40,11 @@ Redirect to the home page
    	redirect_to trainer_path(id: current_trainer.id)
 
 
-   	end
+   end
+
+   def user_params
+  	params.require(:pokemon).permit(:name, :trainer_id)
+   end
 	
 
 end
